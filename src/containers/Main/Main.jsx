@@ -16,12 +16,14 @@ class Main extends Component {
     );
   }
 
-  searchMovies = (str) => {
-    fetch(`http://www.omdbapi.com/?apikey=51fc1bd4&s=${str}`).then(
-      (response) => {
-        response.json().then((data) => this.setState({ movies: data.Search }));
-      }
-    );
+  searchMovies = (str, type = "all") => {
+    fetch(
+      `http://www.omdbapi.com/?apikey=51fc1bd4&s=${str}${
+        type !== "all" ? `&type=${type}` : ""
+      }`
+    ).then((response) => {
+      response.json().then((data) => this.setState({ movies: data.Search }));
+    });
   };
 
   render() {
@@ -30,6 +32,7 @@ class Main extends Component {
     return (
       <main className="container content">
         <Search searchMovies={this.searchMovies} />
+
         {movies.length ? <Movies movies={this.state.movies} /> : <Preloader />}
       </main>
     );

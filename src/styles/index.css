@@ -2,3 +2,5 @@
 
 @import url("../containers/Header/Header.css");
 @import url("../containers/Movies/Movies.css");
+
+@import url("../components/Search/Search.css");
