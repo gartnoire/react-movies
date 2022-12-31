@@ -3,13 +3,13 @@ import React, { Component } from "react";
 class Search extends Component {
   state = {
     search: "",
-    type: "",
+    type: "all",
   };
 
   handleKeyPress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      this.props.searchMovies(this.state.search);
+      this.props.searchMovies(this.state.search, this.state.type);
     }
   };
 
