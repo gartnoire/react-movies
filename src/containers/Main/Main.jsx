@@ -10,15 +10,18 @@ class Main extends Component {
   };
 
   componentDidMount() {
-    fetch(`http://www.omdbapi.com/?apikey=51fc1bd4&s=scope`).then(
-      (response) => {
+    fetch(`http://www.omdbapi.com/?apikey=51fc1bd4&s=scope`)
+      .then((response) => {
         response
           .json()
           .then((data) =>
             this.setState({ movies: data.Search, loading: false })
           );
-      }
-    );
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({ loading: false });
+      });
   }
 
   searchMovies = (str, type) => {
