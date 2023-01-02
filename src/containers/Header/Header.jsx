@@ -1,13 +1,13 @@
 const Header = () => {
   return (
     <header className="header">
-      <nav className="nav">
+      <nav className="nav teal lighten-1">
         <div className="nav-wrapper">
           <a
             href="!#"
             className="brand-logo"
           >
-            logo
+            Catalog Movies
           </a>
           <ul
             id="nav-mobile"
